@@ -7,12 +7,10 @@ class ProductManager {
     addProduct({ title, description, price, thumbnail, code, stock }) {
       if (!title || !description || !price || !code || stock === undefined) {
         console.error("Todos los campos son obligatorios.");
-        return;
       }
   
       if (this.products.some((product) => product.code === code)) {
         console.error("Ya existe un producto con el mismo código.");
-        return;
       }
   
       const product = {
