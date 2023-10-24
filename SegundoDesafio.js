@@ -36,33 +36,33 @@ class ProductosManager {
     await fs.writeFile(this.ruta, productosJson)
   }
 
-  async addUser({ }) {
+  async addProducto({ }) {
     await this.#leerProductos()
-    const usuario = new Usuario({ id, nombre, apellido, edad, curso })
-    this.#productos.push(usuario)
+    const producto = new Producto({ id, nombre, apellido, edad, curso })
+    this.#productos.push(producto)
     await this.#escribirProductos()
-    return usuario
+    return producto
   }
 
-  async getUsers() {
+  async getProducto() {
     await this.#leerProductos()
     return this.#productos
   }
 
-  async updateUser(id, userData) {
+  async updateProduct(id, userData) {
     await this.#leerProductos()
     const index = this.#productos.findIndex(u => u.id === id)
     if (index !== -1) {
-      const nuevoUsu = new Usuario({ id, ...this.#productos[index], ...userData })
+      const nuevoProducto = new Usuario({ id, ...this.#productos[index], ...userData })
       this.#productos[index] = nuevoUsu
       await this.#escribirProductos()
-      return nuevoUsu
+      return nuevoProducto
     } else {
       throw new Error('error al actualizar: usuario no encontrado')
     }
   }
 
-  async deleteUser(id) {
+  async deleteProduct(id) {
     await this.#leerProductos()
     const index = this.#productos.findIndex(u => u.id === id)
     if (index !== -1) {
@@ -79,7 +79,7 @@ async function main() {
   const um = new ProductosManager({ ruta: 'productos.json' })
   um.reset()
 
-  console.log('agregado: ', await um.addUser({
+  console.log('agregado: ', await um.addProducto({
     title: "Vino Tinto",
     description: "vino tinto de la bodega trapiche",
     price: 15.000,
@@ -88,12 +88,11 @@ async function main() {
   }))
 }
 
-  console.log('obtenidos: ', await um.getUsers())
+  console.log('obtenidos: ', await um.getProducto())
 
-  console.log('actualizado: ', await um.updateUser(1, { edad: 38 }))
-  console.log('borrado: ', await um.deleteUser(2))
+  console.log('actualizado: ', await um.updateProduct(1, { title: "Vino Tinto" }))
+  console.log('borrado: ', await um.deleteProduct(2))
 
-  console.log('obtenidos: ', await um.getUsers())
 
 
 main()
