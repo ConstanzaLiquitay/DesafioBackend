@@ -1,0 +1,16 @@
+[
+    {
+        "title": "Vino Tinto",
+        "desription": "vino tinto de la bodega trapiche",
+        "price": 15.000,
+        "code": "1",
+        "stock": 50
+    },
+    {
+        "title": "Vino Blanco",
+        "desription": "vino balanco de la bodega don graffigna",
+        "price": 15.000,
+        "code": "2",
+        "stock": 50
+    }
+]

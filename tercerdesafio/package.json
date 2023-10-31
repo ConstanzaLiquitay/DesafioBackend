@@ -1,0 +1,16 @@
+{
+  "type": "module",
+  "name": "tercerdesafio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node tercerdesafio/main.js",
+    "dev": "nodemon -e 'js' tercerdesafio/main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
