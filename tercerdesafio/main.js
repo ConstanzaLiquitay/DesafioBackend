@@ -19,6 +19,34 @@ app.get('/productos', async (req, res) => {
 
 })
 
+app.get('/productos', async (req, res) => {
+const title = (req.query.titile)
+    try {
+        const productos = await pm.getAll({ title })
+        res.json(productos)
+    } catch (error) {
+        res.json({
+            status: 'error',
+            message : error.message
+        })
+    }
+
+})
+
+app.get('/productos/:id', async (req, res) => {
+    const id = parseInt(req.params.id)
+    try {
+        const productos = await pm.getById(id)
+        res.json(productos)
+    } catch (error) {
+        res.json({
+            status: 'error',
+            message : error.message
+        })
+    }
+
+})
+
 app.listen(PORT, () => {
-    console.log('conectados al puerto ${PORT}');
+    console.log(`conectado al puerto ${PORT}`);
 })

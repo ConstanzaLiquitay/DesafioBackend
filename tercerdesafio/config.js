@@ -1,2 +1,2 @@
-export const PRODUCTOS_JSON = '/db/productos.json';
-const PORT = 8080;
+export const PRODUCTOS_JSON = './productos.json';
+export const PORT = 8080;
