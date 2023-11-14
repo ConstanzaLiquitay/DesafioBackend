@@ -2,6 +2,8 @@ import { PRODUCTOS_JSON, PORT } from './config';
 import express from 'express';
 import { ProductManager } from '../ProductManager.js'
 
+app.listen(8080)
+
 const pm = new ProductManager(PRODUCTOS_JSON);
 const app = express()
 
